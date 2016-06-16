@@ -1,0 +1,35 @@
+
+对于一个包含一系列数字字符串的列表，寻找其中的回文串存入一个列表中并返回
+
+输入说明:
+
+一个包含一系列数字字符串的列表 
+输出说明:
+
+仅包含回文串的列表
+样例输入:
+
+[‘123’, ‘232’, ‘4556554’, ‘12123’, ‘3443’,'1314131']
+样例输出:
+
+['232', '4556554', '3443','1314131']
+提示:
+
+无
+
+#-*- coding:utf-8 -*-
+from log_api import log
+
+class Solution():
+	def isPalindrome(self, x):
+	    if len(x)==1:
+	        return True
+	    else:
+	        return  x==x[::-1]
+	def solve(self, A):
+		result = []
+		for item in A:
+		    if self.isPalindrome(item):
+		        result.append(item)
+		log(result)
+		return result

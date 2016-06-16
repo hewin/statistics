@@ -1,0 +1,49 @@
+#-*- coding:utf-8 -*-
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.plot_api as plt
+import numpy as np
+from log_api import log
+
+def random_variables():
+    fig = plt.figure()
+    #add a 3d subplot
+    ax = fig.add_subplot(111, projection='3d')
+    #set X,Y,Z
+    dx=0.3
+    dy=0.3
+    dz=[0.02, 0.025, 0.35, 0.1, 0.15, 0.04, 0.25, 0.04, 0.025]
+    zpos=0
+    i=0
+    for xpos in [1, 2, 3]:
+        for c, ypos in zip(['r','y','g'], [-1, 0, 1]):
+            ax.bar3d(xpos, ypos, zpos, dx, dy, dz[i], color=c)
+            i=i+1
+
+    plt.savefig('random_variables.png')
+
+#the code should not be changed
+if __name__ == '__main__':
+    random_variables()
+
+
+下面为吸烟与健康关系问题的直方图python实现代码，请完成以下练习：
+（1）仔细阅读，理解代码含义，并运行代码，看看结果如何？
+（2）修改Z轴的值，运行代码，看看结果如何？
+
+输入说明:
+
+无
+输出说明:
+
+无
+样例输入:
+
+无
+样例输出:
+
+无
+提示:
+
+（1）此题为普通编程练习题
+（2）add_subplot(*args,**kwargs)当设定参数projection='3d'时返回Axes3D对象
+（3）Axes3D.bar3d(x,y,z,dx,dy,dz,color=u'b',*args,**kwargs)绘制多直方图，其中x,y,z为数组

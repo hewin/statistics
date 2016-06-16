@@ -1,0 +1,40 @@
+创建一个ndarray数组对象，输入一组100以内的整数，数组shape为4*4，将数组中所有元素的总和、每行的平均值以及每列的平均值共9个数存入一个列表中，并返回该列表。
+
+输入说明:
+
+用np.array()函数生成的一个4*4数组对象，确定一组值 
+输出说明:
+
+计算后的9个数的列表
+样例输入:
+
+1～16，共16个数
+样例输出:
+
+[136,2.5,6.5,10.5,14.5,7,8,9,10]
+提示:
+
+无
+
+
+#-*- coding:utf-8 -*-
+from log_api import log
+
+class Solution():
+	def solve(self, A):
+	    result =[]
+	    sum =0
+	    for index1 in range(0,4):
+	        linesum1 = 0
+	        for index2 in range(0,4):
+	            sum =sum +float(A[index1][index2])
+	            linesum1 = linesum1 +float(A[index1][index2])
+	        result.append(linesum1/4)
+	    for index1 in range(0,4):
+	        linesum2 = 0
+	        for index2 in range(0,4):
+	            linesum2 = float(linesum2 + A[index2][index1])
+	        result.append(linesum2/4)
+	    log(result)
+	    result.insert(0,sum)
+	    return  result

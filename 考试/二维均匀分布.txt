@@ -1,0 +1,52 @@
+下面为二维均匀分布绘图的python代码实现，其X，Y处于长、宽均为[0,1]的正方形G内，请完成以下练习：
+（1）仔细阅读，理解代码含义，并运行代码，看看结果如何？
+（2）修改X、Y，使得X、Y位于长为2，宽为1的长方形G内
+（3）对f(x,y)=1/π,x²+y²<=1代表的二维均匀分布进行图形展现，注意X、Y处于什么区域范围内
+
+输入说明:
+
+无 
+输出说明:
+
+无
+样例输入:
+
+无
+样例输出:
+
+无
+提示:
+
+（1）此题为普通编程练习题
+（2）gca(**kwargs)返回当前Axes对象，如果没有则创建一个返回，当设定参数projection='3d'时返回Axes3D对象
+（3）numpy.meshgrid(*xi,**kwargs)利用坐标向量生成并返回坐标矩阵
+（4）Axes3D.plot_surface(X,Y,Z,*args,**kwargs)生成曲面图
+
+
+#-*- coding:utf-8 -*-
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.plot_api as plt
+import numpy as np
+from log_api import log
+
+def uniform_distribution():
+    fig = plt.figure()
+    #add a 3d subplot
+    ax = fig.gca(projection='3d')
+    #set X,Y,Z
+    X = np.arange(0, 1, 0.01)
+    Y = np.arange(0, 1, 0.01)
+    #create coordinate matrices
+    X, Y = np.meshgrid(X, Y)
+    Z1 = 1
+    Z2 = 0
+    #create surface 1
+    surf = ax.plot_surface(X, Y, Z1, color='b')
+    #create surface 2
+    surf = ax.plot_surface(X, Y, Z2, color='r')
+
+    plt.savefig('uniform_distribution.png')
+
+#the code should not be changed
+if __name__ == '__main__':
+    uniform_distribution()

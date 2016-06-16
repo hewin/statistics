@@ -1,0 +1,33 @@
+#-*- coding:utf-8 -*-
+from log_api import log
+
+class Solution():
+	def solve(self, A):
+		dictionary = {}
+		for item in A:
+		    for index in range(len(item)):
+		        if dictionary.has_key(item[index]):
+		            dictionary[item[index]]=dictionary[item[index]]+1
+		        else:
+		            dictionary[item[index]]=1
+		log(dictionary)
+		return dictionary
+		    
+
+已知有一个由数字字符串构成的列表，统计列表中数字字符'0'-'9'各自出现的次数并返回统计结果
+
+输入说明:
+
+一个由数字字符串构成的列表 
+输出说明:
+
+各数字字符的出现次数
+样例输入:
+
+['12','34','567', '36','809','120']
+样例输出:
+
+{0:2, 1:2, 2:2, 3:2, 4:1, 5:1, 6:2, 7:1, 8:1, 9:1}
+提示:
+
+返回结果为一个字典

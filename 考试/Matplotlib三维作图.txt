@@ -1,0 +1,52 @@
+#-*- coding:utf-8 -*-
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.plot_api as plt
+import numpy as np
+from log_api import log
+
+def bars_3d():
+    fig = plt.figure()
+    #add a 3d subplot
+    ax = fig.add_subplot(111, projection='3d')
+    for c, z in zip(['r', 'g', 'b', 'y'], [30, 20, 10, 0]):
+        xs = np.arange(20)
+        ys = np.random.rand(20)
+
+        #cs is an array to set color
+        cs = [c] * len(xs)
+        # the first bar of each set will be colored cyan.
+        cs[0] = 'c'
+        ax.bar(xs, ys, zs=z, zdir='y', color=cs, alpha=0.8)
+
+    #set label
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
+
+    plt.savefig('figure.png')
+
+#the code should not be changed
+if __name__ == '__main__':
+	bars_3d()
+
+	下面为Matplotlib包进行3D作图的直方图示例，请完成以下练习：
+（1）仔细阅读，理解代码含义，并运行代码，看看结果如何？
+（2）修改Z轴的值，运行代码，看看结果如何？
+
+输入说明:
+
+无 
+输出说明:
+
+无
+样例输入:
+
+无
+样例输出:
+
+无
+提示:
+
+（1）此题为普通编程练习题
+（2）add_subplot(*args,**kwargs)当设定参数projection='3d'时返回Axes3D对象
+（3）Axes3D.bar(left,height,zs=0,zdir=u'z',*args,**kwargs)绘制直方图，还可以通过color参数、alpha参数分别控制颜色与透明度
